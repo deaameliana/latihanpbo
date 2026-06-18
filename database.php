@@ -7,7 +7,7 @@ class Database
     private $password = "";
     private $database = "latihan_pbo_hotel";
 
-    public $koneksi;
+    private $koneksi;
 
     public function __construct()
     {
@@ -21,8 +21,10 @@ class Database
         if ($this->koneksi->connect_error) {
             die("Koneksi Gagal: " . $this->koneksi->connect_error);
         }
+    }
 
-        echo "Koneksi Berhasil";
+    public function getConnection()
+    {
+        return $this->koneksi;
     }
 }
-?>
