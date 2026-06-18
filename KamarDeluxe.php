@@ -1,6 +1,6 @@
 <?php
 
-require_once "Kamar.php";
+require_once 'Kamar.php';
 
 class KamarDeluxe extends Kamar
 {
@@ -28,19 +28,19 @@ class KamarDeluxe extends Kamar
         $this->layananSpaPribadi = $layananSpaPribadi;
     }
 
+    // OVERRIDING
     public function hitungTotalTagihan()
     {
-        $bonus = 250000;
-
-        return ($this->hargaDasarKamar * $this->durasi_menginap) + $bonus;
+        return ($this->durasi_menginap * $this->hargaDasarKamar) + 150000;
     }
 
     public function tampilkanFasilitasKamar()
     {
-        return "Akses Lounge Eksekutif: " .
+        return "
+            Akses Lounge Eksekutif : " .
             ($this->aksesLoungeEksekutif ? "Ya" : "Tidak") .
-            ", Layanan Spa Pribadi: " .
+            "<br>
+            Layanan Spa Pribadi : " .
             ($this->layananSpaPribadi ? "Ya" : "Tidak");
     }
 }
-?>

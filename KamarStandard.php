@@ -1,6 +1,6 @@
 <?php
 
-require_once "Kamar.php";
+require_once 'Kamar.php';
 
 class KamarStandard extends Kamar
 {
@@ -28,14 +28,17 @@ class KamarStandard extends Kamar
         $this->pemandanganKamar = $pemandanganKamar;
     }
 
+    // OVERRIDING
     public function hitungTotalTagihan()
     {
-        return $this->hargaDasarKamar * $this->durasi_menginap;
+        return $this->durasi_menginap * $this->hargaDasarKamar;
     }
 
     public function tampilkanFasilitasKamar()
     {
-        return "Tipe Kasur: {$this->tipeKasur}, Pemandangan: {$this->pemandanganKamar}";
+        return "
+            Tipe Kasur : {$this->tipeKasur}<br>
+            Pemandangan : {$this->pemandanganKamar}
+        ";
     }
 }
-?>

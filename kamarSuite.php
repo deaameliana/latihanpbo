@@ -1,6 +1,6 @@
 <?php
 
-require_once "Kamar.php";
+require_once 'Kamar.php';
 
 class KamarSuite extends Kamar
 {
@@ -28,16 +28,17 @@ class KamarSuite extends Kamar
         $this->dekorasiSpesial = $dekorasiSpesial;
     }
 
+    // OVERRIDING
     public function hitungTotalTagihan()
     {
-        $biayaPremium = 500000;
-
-        return ($this->hargaDasarKamar * $this->durasi_menginap) + $biayaPremium;
+        return ($this->durasi_menginap * $this->hargaDasarKamar) * 1.75;
     }
 
     public function tampilkanFasilitasKamar()
     {
-        return "Butler Personal: {$this->butlerPersonal}, Dekorasi Spesial: {$this->dekorasiSpesial}";
+        return "
+            Butler Personal : {$this->butlerPersonal}<br>
+            Dekorasi Spesial : {$this->dekorasiSpesial}
+        ";
     }
 }
-?>
